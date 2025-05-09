@@ -5,7 +5,7 @@ import com.cebem.medidor.services.SuperheroService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/superheroes")
+@RequestMapping("/hero")
 public class SuperheroController {
 
     private final SuperheroService superheroService;
