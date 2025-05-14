@@ -18,4 +18,12 @@ public class SuperheroController {
     public Superhero getSuperhero(@PathVariable String id) {
         return superheroService.getSuperheroById(id);
     }
+
+    public class PageController {
+
+        @GetMapping("/card")
+        public String showCard() {
+            return "superhero-card"; // sin ".html"
+        }
+    }
 }
