@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Superhero Finder</title>
     <style>
       body {
@@ -54,12 +53,32 @@
         <button type="submit">Find Superhero</button>
       </form>
 
-      <div class="result">
-        <!-- Aquí se mostrarán los detalles del superhéroe -->
+      <form action="/superhero/random" method="get" style="margin-top: 10px">
+        <button type="submit">Get Random Superhero</button>
+      </form>
+
+      <div class="result" th:if="${superhero}">
         <h2>Superhero Details</h2>
-        <p><strong>Name:</strong> {{ superhero.name }}</p>
-        <p><strong>Power:</strong> {{ superhero.power }}</p>
-        <p><strong>Biography:</strong> {{ superhero.biography }}</p>
+        <p>
+          <strong>Name:</strong> <span th:text="${superhero.name}">Name</span>
+        </p>
+        <p>
+          <strong>Full Name:</strong>
+          <span th:text="${superhero.biography.fullName}">Full Name</span>
+        </p>
+        <p>
+          <strong>Power:</strong>
+          <span th:text="${superhero.powerstats.power}">Power</span>
+        </p>
+        <p>
+          <strong>Biography:</strong>
+          <span th:text="${superhero.biography.publisher}">Publisher</span>
+        </p>
+        <img
+          th:src="${superhero.image.url}"
+          alt="Superhero Image"
+          style="max-width: 100%; margin-top: 10px"
+        />
       </div>
     </div>
   </body>

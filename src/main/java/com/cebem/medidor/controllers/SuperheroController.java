@@ -2,9 +2,8 @@ package com.cebem.medidor.controllers;
 
 import com.cebem.medidor.models.Superhero;
 import com.cebem.medidor.services.SuperheroService;
-import org.springframework.web.bind.annotation.*;
 
-import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/superheroes")
@@ -21,15 +20,8 @@ public class SuperheroController {
         return superheroService.getSuperheroById(id);
     }
 
-    public class PageController {
-
-        @GetMapping("/card")
-        public String showCard(Model model) {
-            Superhero superhero = superheroService.getRandomSuperhero();
-            model.addAttribute("superhero", superhero);
-            return "superhero-card";
-
-        }
+    @GetMapping("/random")
+    public Superhero getRandomSuperhero() {
+        return superheroService.getRandomSuperhero();
     }
-
 }
