@@ -1,9 +1,66 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
   <head>
-    <title>Superhero Card</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Superhero Finder</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .container {
+        max-width: 600px;
+        margin: auto;
+      }
+      .form-group {
+        margin-bottom: 15px;
+      }
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      input[type="text"] {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+      }
+      button {
+        padding: 10px 15px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+      .result {
+        margin-top: 20px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+    </style>
   </head>
   <body>
-    <h1>¡Funciona!</h1>
+    <div class="container">
+      <h1>Superhero Finder</h1>
+      <form action="/superhero" method="get">
+        <div class="form-group">
+          <label for="id">Enter Superhero ID:</label>
+          <input type="text" id="id" name="id" required />
+        </div>
+        <button type="submit">Find Superhero</button>
+      </form>
+
+      <div class="result">
+        <!-- Aquí se mostrarán los detalles del superhéroe -->
+        <h2>Superhero Details</h2>
+        <p><strong>Name:</strong> {{ superhero.name }}</p>
+        <p><strong>Power:</strong> {{ superhero.power }}</p>
+        <p><strong>Biography:</strong> {{ superhero.biography }}</p>
+      </div>
+    </div>
   </body>
 </html>

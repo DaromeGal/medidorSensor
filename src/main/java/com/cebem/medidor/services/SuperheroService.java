@@ -1,6 +1,9 @@
 package com.cebem.medidor.services;
 
 import com.cebem.medidor.models.Superhero;
+
+import java.util.Random;
+
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -19,5 +22,10 @@ public class SuperheroService {
     public Superhero getSuperheroById(String id) {
         String url = API_URL.replace("{apiKey}", API_KEY).replace("{id}", id);
         return restTemplate.getForObject(url, Superhero.class);
+    }
+
+    public Superhero getRandomSuperhero() {
+        int randomId = new Random().nextInt(731) + 1; // Rango válido: 1 - 731
+        return getSuperheroById(String.valueOf(randomId));
     }
 }
