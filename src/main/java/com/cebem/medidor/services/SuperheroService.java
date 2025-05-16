@@ -11,7 +11,7 @@ import org.springframework.web.client.RestTemplate;
 public class SuperheroService {
 
     private final String API_URL = "https://superheroapi.com/api/{apiKey}/{id}";
-    private final String API_KEY = "https://superheroapi.com/api/ca6bd70e65c6df532bc93ee3a4ba2e31";
+    private final String API_KEY = "ca6bd70e65c6df532bc93ee3a4ba2e31";
 
     private final RestTemplate restTemplate;
 
