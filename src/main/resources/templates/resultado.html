@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Resultado</title>
+  </head>
+  <body>
+    <h1 th:text="${pelicula.titulo}">Título</h1>
+    <img th:src="${pelicula.poster}" alt="Poster" style="width: 200px" />
+    <p><strong>Año:</strong> <span th:text="${pelicula.anio}"></span></p>
+    <p><strong>Género:</strong> <span th:text="${pelicula.genero}"></span></p>
+    <p>
+      <strong>Director:</strong> <span th:text="${pelicula.director}"></span>
+    </p>
+    <p>
+      <strong>Argumento:</strong> <span th:text="${pelicula.argumento}"></span>
+    </p>
+    <p>
+      <strong>IMDb Rating:</strong>
+      <span th:text="${pelicula.imdbRating}"></span>
+    </p>
+    <a href="/">🔙 Volver</a>
+  </body>
+</html>
